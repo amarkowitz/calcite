@@ -1229,7 +1229,7 @@ public class RelDecorrelator implements ReflectiveVisitor {
       final int newLeftPos = requireNonNull(leftFrame.oldToNewOutputs.get(corDef.field));
       final int newRightPos = rightOutput.getValue();
       conditions.add(
-          relBuilder.equals(RexInputRef.of(newLeftPos, newLeftOutput),
+          relBuilder.isNotDistinctFrom(RexInputRef.of(newLeftPos, newLeftOutput),
               new RexInputRef(newLeftFieldCount + newRightPos,
                   newRightOutput.get(newRightPos).getType())));
 
